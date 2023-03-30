@@ -5,7 +5,7 @@ library(dplyr)
 mechaCar_mpg <- read.csv("MechaCar_mpg.csv")
 
 # Perform linear regression using lm() function
-linear_regression <- lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + drivetrain + ground_clearance, data = mechaCar_mpg)
+linear_regression <- lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + AWD + ground_clearance, data = mechaCar_mpg)
 
 # Determine the p-value and r-squared value for the linear regression model
 linear_regression_summary <- summary(linear_regression)
@@ -22,14 +22,14 @@ total_summary <- suspension_coil %>%
 
 # Create lot_summary dataframe
 lot_summary <- suspension_coil %>% 
-  group_by(Lot) %>% 
+  group_by(Manufacturing_Lot) %>% 
   summarize(Mean = mean(PSI), Median = median(PSI), Variance = var(PSI), SD = sd(PSI))
 
 
 
 # Perform t-tests
 t_test_all <- t.test(suspension_coil$PSI, mu = 1500)
-t_test_lot1 <- t.test(subset(suspension_coil, Lot == "Lot1")$PSI, mu = 1500)
-t_test_lot2 <- t.test(subset(suspension_coil, Lot == "Lot2")$PSI, mu = 1500)
-t_test_lot3 <- t.test(subset(suspension_coil, Lot == "Lot3")$PSI, mu = 1500)
+t_test_lot1 <- t.test(subset(suspension_coil, Manufacturing_Lot == "Lot1")$PSI, mu = 1500)
+t_test_lot2 <- t.test(subset(suspension_coil, Manufacturing_Lot == "Lot2")$PSI, mu = 1500)
+t_test_lot3 <- t.test(subset(suspension_coil, Manufacturing_Lot == "Lot3")$PSI, mu = 1500)
 
