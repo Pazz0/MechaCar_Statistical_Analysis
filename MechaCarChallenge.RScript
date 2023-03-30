@@ -1,0 +1,14 @@
+# Load dplyr package
+library(dplyr)
+
+# Read in MechaCar_mpg.csv
+mechaCar_mpg <- read.csv("MechaCar_mpg.csv")
+
+# Perform linear regression using lm() function
+linear_regression <- lm(mpg ~ vehicle_length + vehicle_weight + spoiler_angle + drivetrain + ground_clearance, data = mechaCar_mpg)
+
+# Determine the p-value and r-squared value for the linear regression model
+linear_regression_summary <- summary(linear_regression)
+linear_regression_summary
+
+
