@@ -33,3 +33,15 @@ t_test_lot1 <- t.test(subset(suspension_coil, Manufacturing_Lot == "Lot1")$PSI, 
 t_test_lot2 <- t.test(subset(suspension_coil, Manufacturing_Lot == "Lot2")$PSI, mu = 1500)
 t_test_lot3 <- t.test(subset(suspension_coil, Manufacturing_Lot == "Lot3")$PSI, mu = 1500)
 
+# Print t-test results
+print("All Lots")
+print(t_test_all)
+
+print("Lot 1")
+print(t_test_lot1)
+
+print("Lot 2")
+print(t_test_lot2)
+
+print("Lot 3")
+print(t_test_lot3)
